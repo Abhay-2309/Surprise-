@@ -1,4 +1,3 @@
-// src/components/Banner3D.tsx
 import React from "react";
 
 const images = [
@@ -22,13 +21,11 @@ const images = [
   "/pic24.jpg",
 ];
 
-
 const quantity = images.length;
 
 const Banner3D: React.FC = () => {
   return (
     <>
-      {/* Apply Tailwind classes here */}
       <div className="banner bg-pink-100 flex justify-center items-center min-h-screen relative overflow-hidden">
         <div
           className="slider"
@@ -55,14 +52,11 @@ const Banner3D: React.FC = () => {
           box-sizing: border-box;
         }
 
-        /* Remove previous body background CSS */
-
         body {
           overflow-x: hidden;
           height: 100vh;
           position: relative;
           font-family: 'Poppins', sans-serif;
-          /* no background here because using Tailwind bg-pink-100 */
         }
 
         body::before {
@@ -105,23 +99,23 @@ const Banner3D: React.FC = () => {
           width: 100%;
           height: 100vh;
           text-align: center;
-          /* flex handled by Tailwind */
-          /* overflow hidden handled by Tailwind */
           position: relative;
           z-index: 10;
         }
+
         .banner .slider {
           position: absolute;
-          width: 200px;
-          height: 250px;
+          width: 220px;
+          height: 280px;
           top: 10%;
-          left: calc(50% - 100px);
+          left: calc(50% - 110px);
           transform-style: preserve-3d;
           transform: perspective(1000px);
           animation: autoRun 20s linear infinite;
           z-index: 2;
           --quantity: ${quantity};
         }
+
         @keyframes autoRun {
           from {
             transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
@@ -130,26 +124,30 @@ const Banner3D: React.FC = () => {
             transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
           }
         }
+
         .banner .slider .item {
           position: absolute;
           inset: 0 0 0 0;
           transform:
             rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-            translateZ(550px);
+            translateZ(600px);
         }
+
         .banner .slider .item img {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain; /* Changed from cover to contain */
           border-radius: 10px;
           box-shadow: 0 8px 16px rgba(0,0,0,0.6);
-          transition: transform 0.3s ease;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
           cursor: pointer;
         }
+
         .banner .slider .item img:hover {
           transform: scale(1.05);
           box-shadow: 0 12px 24px rgba(255,255,255,0.8);
         }
+
         .banner .content {
           position: absolute;
           bottom: 0;
@@ -166,28 +164,44 @@ const Banner3D: React.FC = () => {
           color: #eee;
         }
 
+        /* Responsive adjustments */
+
         @media screen and (max-width: 1023px) {
           .banner .slider {
-            width: 160px;
-            height: 200px;
-            left: calc(50% - 80px);
+            width: 180px;
+            height: 230px;
+            left: calc(50% - 90px);
           }
           .banner .slider .item {
             transform:
               rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-              translateZ(300px);
+              translateZ(400px);
           }
         }
+
         @media screen and (max-width: 767px) {
           .banner .slider {
-            width: 100px;
-            height: 150px;
-            left: calc(50% - 50px);
+            width: 140px;
+            height: 180px;
+            left: calc(50% - 70px);
           }
           .banner .slider .item {
             transform:
               rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-              translateZ(180px);
+              translateZ(280px);
+          }
+        }
+
+        @media screen and (max-width: 480px) {
+          .banner .slider {
+            width: 110px;
+            height: 140px;
+            left: calc(50% - 55px);
+          }
+          .banner .slider .item {
+            transform:
+              rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+              translateZ(220px);
           }
         }
       `}</style>

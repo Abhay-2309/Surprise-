@@ -29,12 +29,12 @@ const Photogallery: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-pink-50 flex flex-col items-center justify-center p-6">
-      <h2 className="text-4xl font-bold text-center text-pink-600 mb-8">
+    <div className="min-h-screen bg-pink-50 flex flex-col items-center justify-center px-4 py-8">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-pink-600 mb-8 max-w-xl">
         🌸 Our Memories Together
       </h2>
 
-      <div className="w-96 h-96 relative">
+      <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]">
         {transitions((style, item) => (
           <animated.img
             key={item}

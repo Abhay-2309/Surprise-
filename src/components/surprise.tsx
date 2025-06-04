@@ -4,7 +4,7 @@ const Surprise: React.FC = () => {
   return (
     <div
       id="surprise"
-      className="min-h-screen bg-pink-100 grid grid-cols-3 gap-4 items-center justify-center p-8"
+      className="min-h-screen bg-pink-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center justify-center p-6 sm:p-8"
     >
       {/* 🌸 Left - Priya Image */}
       <div className="flex justify-center">
@@ -18,14 +18,14 @@ const Surprise: React.FC = () => {
       {/* 💌 Center - Message */}
       <div className="flex justify-center">
         <div className="bg-pink-200 rounded-2xl shadow-xl p-6 text-center max-w-md">
-          <h2 className="text-4xl font-semibold text-pink-700 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-pink-700 mb-4">
             To My Favorite Person 🎂
           </h2>
-          <p className="text-gray-800 text-lg mb-4">
+          <p className="text-gray-800 text-base sm:text-lg mb-4">
             I can’t express how lucky I am to have you. Your smile lights up my world.
             You deserve all the love, joy, and happiness in the universe.
           </p>
-          <p className="text-pink-600 font-bold text-xl">
+          <p className="text-pink-600 font-bold text-lg sm:text-xl">
             Happy Birthday again! 💖
           </p>
         </div>
